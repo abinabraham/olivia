@@ -1,4 +1,5 @@
-{% load staticfiles %}<!DOCTYPE html>
+{% load staticfiles %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
     <!-- Bootstrap css -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
@@ -28,6 +29,7 @@
 
     <!-- Main Stylesheet File -->
     <link href="/static/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/img/logo.jpg" type="image/x-icon">
 
 </head>
 
@@ -85,17 +87,18 @@
                     <div class="info">
                         <div>
                             <i class="fa fa-map-marker"></i>
-                            <p>211,Salalah<br>New York, Sultanate of Oman 535022</p>
+                            <p>PO Box: 1493, PO Code: 211<br>Salalah, Sultanate of Oman</p>
                         </div>
 
                         <div class="email">
                             <i class="fa fa-envelope"></i>
-                            <p>ottsalalah@gmail.com</p>
+                            <p>oliviasalalah@gmail.com</p>
                         </div>
 
                         <div>
                             <i class="fa fa-phone"></i>
-                            <p>+968 96433490</p>
+                            <p>+968 23297135</p>
+                            <p>+968 96433490 / +968 93120005</p>
                         </div>
                     </div>
 
@@ -113,24 +116,24 @@
                     <div class="form">
                         <div id="sendmessage">Your message has been sent. Thank you!</div>
                         <div id="errormessage"></div>
-                        <form action="" method="post" role="form" class="contactForm">
+                        <form action="." method="post" class="contactForm" id="contactForm">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <input type="text" name="name" class="form-control" id="cntct_name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <input type="email" class="form-control" name="email" id="cntct_email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <input type="text" class="form-control" name="subject" id="cntct_subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="message" id="cntct_mesg" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                                 <div class="validation"></div>
                             </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            <div class="text-center"><button type="submit" id="new_cntct">Send Message</button></div>
                         </form>
                     </div>
                 </div>
@@ -161,7 +164,7 @@
 
                         <img src="/static/img/svg/cloud.svg" alt="img" class="img-fluid">
                         <h4>Places that you Love</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                        <p>Olivia Travels gives you ways to address all your specific needs - be it comfort, convenience and/or cost. From best deals to book flight tickets to special offers with friendly payment options are available for domestic as well as international flight ticket booking. </p>
                         <!-- <a href="#">read more</a> -->
 
                     </div>
@@ -172,7 +175,7 @@
 
                         <img src="/static/img/svg/planet.svg" alt="img" class="img-fluid">
                         <h4>Customer Friendly Guides</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                        <p>Olivia Travels gives you ways to address all your specific needs - be it comfort, convenience and/or cost. From best deals to book flight tickets to special offers with friendly payment options are available for domestic as well as international flight ticket booking. </p>
                         <!-- <a href="#">read more</a> -->
 
                     </div>
@@ -183,7 +186,7 @@
 
                         <img src="/static/img/svg/asteroid.svg" alt="img" class="img-fluid">
                         <h4>Best in Class Aminities</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                        <p>Olivia Travels gives you ways to address all your specific needs - be it comfort, convenience and/or cost. From best deals to book flight tickets to special offers with friendly payment options are available for domestic as well as international flight ticket booking. </p>
                         <!-- <a href="#">read more</a> -->
 
                     </div>
@@ -235,7 +238,7 @@
                     <div class="footer-logo">
 
                         <a class="navbar-brand" href="#">Olivia Travels</a>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p>
+                        <p>Olivia Travels gives you ways to address all your specific needs - be it comfort, convenience and/or cost. From best deals to book flight tickets to special offers with friendly payment options are available for domestic as well as international flight ticket booking. </p>
 
                     </div>
                 </div>
@@ -245,9 +248,9 @@
         <div class="copyrights">
             <div class="container">
                 <p>&copy; Copyrights My Template. All rights reserved.</p>
-                <div class="credits">
+                <!-- <div class="credits">
                     Designed by <a href="https://bootstrapmade.com/">AbeZz</a>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -274,7 +277,44 @@
     <script src="/static/js/main.js"></script>
 
 </body>
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+
+        $('#new_cntct').click(function()
+        {
+            var cntct_name = $('#cntct_name').val();
+            var cntct_email = $('#cntct_email').val();
+            var cntct_subjct = $('#cntct_subject').val();
+            var cntct_msg = $('#cntct_mesg').val();
+
+            if(cntct_name == "" || cntct_email == "" || cntct_subjct == "" ||  cntct_msg == ""){
+                console.log("empty fields");
+
+            }else{
+
+            var ajaxRequest= $.ajax({
+                'url': '/general/contact/',
+                'type': 'POST',
+                'data': {csrfmiddlewaretoken: '{{ csrf_token }}',name:cntct_name,email:cntct_email,subject:cntct_subjct,message:cntct_msg},
+                'dataType': 'json',
+                'async':false,
+            });
+
+            ajaxRequest.success(function(response)
+            {
+                // console.log("successssssssssss",response);
+                
+
+                document.getElementById('contactForm').reset();
+                $("#sendmessage").fadeIn(3000).fadeOut(3000);
+            });
+        }
+
+        });
+    });
+
+</script>
 
 </html>
 
-</html>

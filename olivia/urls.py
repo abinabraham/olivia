@@ -19,14 +19,19 @@ from olivia.views import HomeView
 
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import include
+from general.views import OliviaDashboard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^general/', include('general.urls')),
     url(r'^$', HomeView.as_view(),name='index'),
+    url(r'^dashboard/$', OliviaDashboard.as_view(),name='dash_board'),
+
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-admin.site.site_header = 'SERAHOLIDAYS ADMIN DASHBOARD'
+admin.site.site_header = 'OLIVIAHOLIDAY ADMIN DASHBOARD'
