@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login | Adminpro - Admin Template</title>
+    <title>Olivia | Admin Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -92,10 +92,27 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                    {% if form.errors %}
+    <div class="alert alert-error" style="color: red;">
+      <h4>Please fix the following errors</h4>
+      <ul>
+        {% for field in form %}
+          {% if field.errors %}
+            {% for error in field.errors %}
+              <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% if form.non_field_errors %}
+        {{ form.non_field_errors }}
+      {% endif %}
+    </div>
+  {% endif %}
                                         <div class="col-lg-12">
                                             <div class="login-title">
                                                 <h1>Login Form</h1>
-                                                <p>{{form.errors}}</p>
+                                               
                                             </div>
                                         </div>
                                     </div>
