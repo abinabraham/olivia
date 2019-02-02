@@ -23,11 +23,16 @@ from django.conf.urls import include
 from general.views import OliviaDashboard
 from django.contrib.auth.decorators import login_required, permission_required
 
+from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^general/', include('general.urls')),
     url(r'^$', HomeView.as_view(),name='index'),
     url(r'^dashboard/$', login_required(OliviaDashboard.as_view()),name='dashboard'),
+    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
