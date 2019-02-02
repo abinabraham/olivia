@@ -10,14 +10,14 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="/static/img/favicon.png" rel="icon">
+    <link href="/static/img/logo.jpg" rel="icon">
     <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="/static/lib/bootstrap/css/bootstrap.css">
     <link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
@@ -288,28 +288,31 @@
             var cntct_subjct = $('#cntct_subject').val();
             var cntct_msg = $('#cntct_mesg').val();
 
-            if(cntct_name == "" || cntct_email == "" || cntct_subjct == "" ||  cntct_msg == ""){
+            if(cntct_name == "" || cntct_email == "" || cntct_subjct == "" ||  cntct_msg == "")
+            {
                 console.log("empty fields");
 
-            }else{
-
-            var ajaxRequest= $.ajax({
-                'url': '/general/contact/',
-                'type': 'POST',
-                'data': {csrfmiddlewaretoken: '{{ csrf_token }}',name:cntct_name,email:cntct_email,subject:cntct_subjct,message:cntct_msg},
-                'dataType': 'json',
-                'async':false,
-            });
-
-            ajaxRequest.success(function(response)
+            }
+            else
             {
-                // console.log("successssssssssss",response);
-                
 
-                document.getElementById('contactForm').reset();
-                $("#sendmessage").fadeIn(3000).fadeOut(3000);
-            });
-        }
+                var ajaxRequest= $.ajax({
+                    'url': '/general/contact/',
+                    'type': 'POST',
+                    'data': {csrfmiddlewaretoken: '{{ csrf_token }}',name:cntct_name,email:cntct_email,subject:cntct_subjct,message:cntct_msg},
+                    'dataType': 'json',
+                    'async':false,
+                });
+
+                ajaxRequest.success(function(response)
+                {
+                    // console.log("successssssssssss",response);
+                    
+
+                    document.getElementById('contactForm').reset();
+                    $("#sendmessage").fadeIn(3000).fadeOut(3000);
+                });
+            }
 
         });
     });

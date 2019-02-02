@@ -1,0 +1,210 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dashboard v.1.0 | Adminpro - Admin Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <!-- adminpro icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <!-- <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css"> -->
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- data-table CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="/static/css/data-table/bootstrap-editable.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <!-- charts C3 CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/c3.min.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/form/all-type-forms.css">
+    <!-- switcher CSS
+        ============================================ -->
+    <!-- <link rel="stylesheet" href="css/switcher/color-switcher.css"> -->
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/admin_style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <!-- modernizr JS
+        ============================================ -->
+    <!-- <script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
+    <!-- Color Css Files
+        ============================================ -->
+    
+</head>
+
+<body>
+     <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="admin-logo">
+                            <a href="#"><img src="/static/img/logo.jpg" width="50px" height="90px"  alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-0 col-xs-12">
+                        <div class="header-top-menu">
+                            <ul class="nav navbar-nav mai-top-nav">
+                                <li class="nav-item"><a href="/dashboard/" class="nav-link">Home</a>
+                                </li>
+                                <li class="nav-item"><a href="/" class="nav-link">Return to Site</a>
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <!-- Header top area end-->
+    <!-- Main Menu area start-->
+        <div class="main-menu-area mg-tb-40">
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>
+        </div>
+    <!-- Main Menu area End-->
+    <!-- Mobile Menu start -->
+    
+    <!-- welcome Project, sale area start-->
+    <!-- stockprice, feed area start-->
+    <div class="stockprice-feed-project-area">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                    <div class="sparkline8-list shadow-reset">
+                        <div class="sparkline8-hd">
+                            <div class="main-sparkline8-hd">
+                                <h1>Olivia Contact Details</h1>
+                                <!-- <div class="sparkline8-outline-icon">
+                                    <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                                    <span><i class="fa fa-wrench"></i></span>
+                                    <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
+                                </div -->
+                            </div>
+                        </div>
+                        <div class="sparkline8-graph">
+                            <div class="datatable-dashv1-list custom-datatable-overright">
+                                <!-- <div id="toolbar">
+                                    <select class="form-control">
+                                        <option value="">Export Basic</option>
+                                        <option value="all">Export All</option>
+                                        <option value="selected">Export Selected</option>
+                                    </select>
+                                </div> -->
+                         <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="state" data-checkbox="true"></th>
+                                            <th data-field="id">ID/Sl.No</th>
+                                            <th data-field="name" data-editable="true">Name</th>
+                                            <th data-field="email" data-editable="true">Email</th>
+                                            <th data-field="phone" data-editable="true">Subject</th>
+                                            <th data-field="company" data-editable="true">Message</th>
+                                            <th data-field="complete">Posted on</th>
+                                            <!-- <th data-field="action">Action</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for contact in data %}
+                                        <tr>
+                                            <td></td>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{contact.name}}</td>
+                                            <td>{{contact.email}}</td>
+                                            <td>{{contact.subject}}</td>
+                                            <td>{{contact.message}}</td>
+                                            <td>{{contact.created_on|date:"D, d,M, Y"}}</td>
+                                            <!-- <td class="datatable-ct"><i class="fa fa-check"></i> -->
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                        </div>
+                        </div>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- stockprice, feed area end-->
+    <!-- Data table area Start-->
+    
+        <div class="footer-copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                             <p>Copyright &#169; 2019</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Chat Box End-->
+    <!-- jquery
+        ============================================ -->
+    <script src="/static/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+
+    <script src="/static/js/data-table/bootstrap-table.js"></script>
+    <script src="/static/js/data-table/tableExport.js"></script>
+    <script src="/static/js/data-table/data-table-active.js"></script>
+    <script src="/static/js/data-table/bootstrap-table-editable.js"></script>
+    <script src="/static/js/data-table/bootstrap-editable.js"></script>
+    <script src="/static/js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="/static/js/data-table/colResizable-1.5.source.js"></script>
+    <script src="/static/js/data-table/bootstrap-table-export.js"></script>
+    <!-- switcher JS
+        ============================================ -->
+
+    <!-- main JS
+        ============================================ -->
+    <script src="/static/js/main1.js"></script>
+</body>
+
+</html>

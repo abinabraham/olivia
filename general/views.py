@@ -22,15 +22,27 @@ class NewContact(View):
 		contct_obj = ContactModel.objects.create(name=name,email=email,subject=subjt,message=msg)
 		return HttpResponse(json.dumps('success'), content_type='json')
 
+
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
+
+
+# Create your views here.
+@method_decorator(login_required, name='dispatch')
 class OliviaDashboard(View):
 	template_name = 'dashboard.html'
 	'''view for showing dashboard '''
 
 	def get(self,request):
 		print("get")
-		return render(request,self.template_name)
+		contact_obj = ContactModel.objects.all()
+		# context = {
+		# 	'contacts':contact_obj
+		# }
+		return render(request,self.template_name,{'data':contact_obj})
 
 
-	def post(self,request):
-		print("post")
-		return render(request,self.template_name)
+	# def post(self,request):
+	# 	print("post")
+	# 	return render(request,self.template_name)

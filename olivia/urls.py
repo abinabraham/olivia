@@ -21,12 +21,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls import include
 from general.views import OliviaDashboard
+from django.contrib.auth.decorators import login_required, permission_required
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^general/', include('general.urls')),
     url(r'^$', HomeView.as_view(),name='index'),
-    url(r'^dashboard/$', OliviaDashboard.as_view(),name='dash_board'),
+    url(r'^dashboard/$', login_required(OliviaDashboard.as_view()),name='dashboard'),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
