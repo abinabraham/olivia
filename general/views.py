@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponse
 
-from models import ContactModel
+from models import ContactUsModel
 
 # Create your views here.
 class NewContact(View): 
@@ -17,9 +17,19 @@ class NewContact(View):
 		name = request.POST.get('name')
 		email = request.POST.get('email')
 		subjt = request.POST.get('subject')
-		msg = request.POST.get('message')
+		mob_no = request.POST.get('mob_no')
+		print("ttttttttttttt",subjt,type(subjt))
+		if subjt=='0' and subjt=='1' :
+			print("first>...................")
+			subjt = 'I Would Like To Discuss'
+		elif subjt=='2':
+			print("sssssssssssssssssssssss")
+			subjt = 'I Would Like To Know About'
+		else:
+			print("ttttttttttttttt")
+			subjt = 'I Would Like To Suggest'
 		# print("in viewwwwwwwwwwwwwwwwwwwww",name,email,subjt,msg)
-		contct_obj = ContactModel.objects.create(name=name,email=email,subject=subjt,message=msg)
+		contct_obj = ContactUsModel.objects.create(name=name,email=email,subject=subjt,mob_no=mob_no)
 		return HttpResponse(json.dumps('success'), content_type='json')
 
 
@@ -36,7 +46,7 @@ class OliviaDashboard(View):
 
 	def get(self,request):
 		print("get")
-		contact_obj = ContactModel.objects.all()
+		contact_obj = ContactUsModel.objects.all()
 		# context = {
 		# 	'contacts':contact_obj
 		# }
