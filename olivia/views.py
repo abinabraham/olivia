@@ -32,7 +32,7 @@ class HomeView(View):
             messages.success(request, 'Thank you!. Your request has been successfully sent. We will contact you soon.') 
         except Exception as e:
             print "+++=e",e
-            messages.error(request, 'Oops. Something went wrong. Try again!.') 
+            messages.error(request, 'Oops. Something went wrong. Try again!.',e) 
 
         
         return redirect("/#contact")
