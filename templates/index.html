@@ -218,7 +218,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="video-box wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
                             <img src="/static/img/home/video.png" alt="image" class="tran7s">
-                            <a href="https://www.youtube.com/embed/eAaP03Qs6cE?autoplay=1" class="fancy_video fancybox.iframe tran3s">
+                            <a href="https://www.youtube.com/embed/ZZF2qzU7WO4?autoplay=1" class="fancy_video fancybox.iframe tran3s">
                                 <div><span><img src="/static/img/icons/play.png" alt=""></span></div>
                             </a>
 
@@ -357,15 +357,19 @@
                         <!--form-box-->
                         <div class="form-box default-form">
                             <div class="default-form">
-                                <form action="." method="post" id="contactForm" class="home-contact-form contact-form select-form">
+                                <form action="." method="post" id="contactForm" class="home-contact-form contact-form select-form">{% csrf_token %}
                                     <div class="row clearfix">
-                                    <div class="alert">
-  <strong>Success!</strong> Indicates a successful or positive action.
-</div>
+                                    {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}" style="color: red;">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
 
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                             <div class="g-input f1 mb-30">
-                                                <select  id="cntct_subject" class="text-capitalize selectpicker" data-style="g-select" data-width="100%">
+                                                <select  id="cntct_subject" class="text-capitalize selectpicker" data-style="g-select" data-width="100%" name="subject">
 				                                <option value="0" selected="">I would like to discuss:</option>
 				                                <option value="1">I would like to discuss:</option>
 				                                <option value="2">I would like to know about:</option>
@@ -387,7 +391,7 @@
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <button type="button" class="thm-btn" id="new_cntct">submit</button>
+                                            <button type="submit" class="thm-btn" id="">submit</button>
                                         </div>
                                     </div>
                                 </form>
